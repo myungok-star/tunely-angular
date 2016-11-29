@@ -37,6 +37,17 @@ app.get('/templates/:name', function templates(req, res) {
 });
 
 
+
+/* set up a route to get the templates. Templates are
+ * blocks of HTML that Angular will use to render each
+ * "view" or page of your app.
+ */
+app.get('/templates/:name', function templates(req, res) {
+  var name = req.params.name;
+  res.sendFile(__dirname + '/views/templates/' + name + '.html');
+});
+
+
 /*
  * JSON API Endpoints
  */
@@ -54,7 +65,10 @@ app.post('/api/albums/:albumId/songs', controllers.albumsSongs.create);
 app.delete('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.destroy);
 app.put('/api/albums/:albumId/songs/:songId', controllers.albumsSongs.update);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbcc308fa5d61e1bdb21963605f86643d9728521
 // ALL OTHER ROUTES (ANGULAR HANDLES)
 // redirect all other paths to index
 app.get('*', function homepage (req, res) {
